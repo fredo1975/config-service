@@ -52,7 +52,7 @@ pipeline {
 			}
 		}
 		
-	   stage('Stopping dev discovery server dev') {
+	   stage('Stopping dev config service dev') {
 	   	when {
                 branch 'develop'
             }
@@ -65,7 +65,7 @@ pipeline {
 		      	}
 		   }
 	   }
-	   stage('Stopping production discovery server dev') {
+	   stage('Stopping production config service dev') {
 	   	when {
                 branch 'master'
             }
@@ -78,7 +78,7 @@ pipeline {
 		      	}
 		   }
 	   }
-	   stage('Copying dev discovery server jar') {
+	   stage('Copying dev config service jar') {
 	   		when {
                 branch 'develop'
             }
@@ -91,7 +91,7 @@ pipeline {
 		      	}
 		    }
 	   }
-	   stage('Copying production discovery server jar') {
+	   stage('Copying production config service jar') {
 	   		when {
                 branch 'master'
             }
@@ -104,7 +104,7 @@ pipeline {
 		      	}
 		    }
 	   }
-	   stage('Sarting dev discovery server') {
+	   stage('Sarting dev config service') {
 	   		when {
                 branch 'develop'
             }
@@ -117,7 +117,7 @@ pipeline {
 		      	}
 		    }
 	   }
-	   stage('Sarting production discovery server') {
+	   stage('Sarting production config service') {
 	   		when {
                 branch 'master'
             }
@@ -130,7 +130,7 @@ pipeline {
 		      	}
 		    }
 	   }
-	   stage('Check dev status discovery server') {
+	   stage('Check dev status config service') {
 	   		when {
                 branch 'develop'
             }
@@ -143,7 +143,7 @@ pipeline {
 		      	}
 		    }
 	   }
-	   stage('Check productrion status discovery server') {
+	   stage('Check productrion status config service') {
 	   		when {
                 branch 'master'
             }
