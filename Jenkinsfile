@@ -59,8 +59,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-		      			sh "ssh jenkins@$DEV1_SERVER_IP sudo systemctl stop dvdtheque-server-config.service.service"
-			      		sh "ssh jenkins@$DEV2_SERVER_IP sudo systemctl stop dvdtheque-server-config.service.service"
+		      			sh "ssh jenkins@$DEV1_SERVER_IP sudo systemctl stop dvdtheque-server-config.service"
+			      		sh "ssh jenkins@$DEV2_SERVER_IP sudo systemctl stop dvdtheque-server-config.service"
 		      		}
 		      	}
 		   }
@@ -72,8 +72,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-		      			sh "ssh jenkins@$PROD1_SERVER_IP sudo systemctl stop dvdtheque-server-config.service.service"
-			      		sh "ssh jenkins@$PROD2_SERVER_IP sudo systemctl stop dvdtheque-server-config.service.service"
+		      			sh "ssh jenkins@$PROD1_SERVER_IP sudo systemctl stop dvdtheque-server-config.service"
+			      		sh "ssh jenkins@$PROD2_SERVER_IP sudo systemctl stop dvdtheque-server-config.service"
 		      		}
 		      	}
 		   }
@@ -111,8 +111,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-		      			sh "ssh jenkins@$DEV1_SERVER_IP sudo systemctl start dvdtheque-server-config.service.service"
-				        sh "ssh jenkins@$DEV2_SERVER_IP sudo systemctl start dvdtheque-server-config.service.service"
+		      			sh "ssh jenkins@$DEV1_SERVER_IP sudo systemctl start dvdtheque-server-config.service"
+				        sh "ssh jenkins@$DEV2_SERVER_IP sudo systemctl start dvdtheque-server-config.service"
 		      		}
 		      	}
 		    }
@@ -124,8 +124,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-		      			sh "ssh jenkins@$PROD1_SERVER_IP sudo systemctl start dvdtheque-server-config.service.service"
-				        sh "ssh jenkins@$PROD2_SERVER_IP sudo systemctl start dvdtheque-server-config.service.service"
+		      			sh "ssh jenkins@$PROD1_SERVER_IP sudo systemctl start dvdtheque-server-config.service"
+				        sh "ssh jenkins@$PROD2_SERVER_IP sudo systemctl start dvdtheque-server-config.service"
 		      		}
 		      	}
 		    }
@@ -137,8 +137,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-		      			sh "ssh jenkins@$DEV1_SERVER_IP sudo systemctl status dvdtheque-server-config.service.service"
-		      			sh "ssh jenkins@$DEV2_SERVER_IP sudo systemctl status dvdtheque-server-config.service.service"
+		      			sh "ssh jenkins@$DEV1_SERVER_IP sudo systemctl status dvdtheque-server-config.service"
+		      			sh "ssh jenkins@$DEV2_SERVER_IP sudo systemctl status dvdtheque-server-config.service"
 		      		}
 		      	}
 		    }
@@ -150,8 +150,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-		      			sh "ssh jenkins@$PROD1_SERVER_IP sudo systemctl status dvdtheque-server-config.service.service"
-		      			sh "ssh jenkins@$PROD2_SERVER_IP sudo systemctl status dvdtheque-server-config.service.service"
+		      			sh "ssh jenkins@$PROD1_SERVER_IP sudo systemctl status dvdtheque-server-config.service"
+		      			sh "ssh jenkins@$PROD2_SERVER_IP sudo systemctl status dvdtheque-server-config.service"
 		      		}
 		      	}
 		    }
