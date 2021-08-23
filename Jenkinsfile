@@ -4,12 +4,18 @@ pipeline {
 		PROD2_SERVER_IP = "192.168.1.108"
 		DEV1_SERVER_IP = "192.168.1.105"
 		DEV2_SERVER_IP = "192.168.1.103"
+		NEXUS_BASE_URL="http://192.168.1.107:8081"
+        REPOSITORY="maven-snapshots"
+		GROUP_ID="config-service"
+		ARTIFACT_ID="config-service"
+		LOCAL_FILE="dvdtheque-server-config.service.jar"
 		GIT_COMMIT_SHORT = sh(
                 script: "printf \$(git rev-parse --short HEAD)",
                 returnStdout: true
         )
         def VERSION = getArtifactVersion(GIT_COMMIT_SHORT)
         def ARTIFACT = "config-service-${VERSION}.jar"
+        NEXUS_RESOLVE_URL="${NEXUS_BASE_URL}artifact/maven/resolve?g=${GROUP_ID}a=${ARTIFACT_ID}&r=${REPOSITORY}&v=${VERSION}"
 	}
     //agent { label 'slave01' }
 	agent any
@@ -35,10 +41,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Build for development') {
-			when {
-                branch 'develop'
-            }
+		stage('Build') {
 			steps {
 				script {
 					withMaven(mavenSettingsConfig: 'MyMavenSettings') {
@@ -51,7 +54,6 @@ pipeline {
 				}
 			}
 		}
-		
 	   stage('Stopping dev config service dev') {
 	   	when {
                 branch 'develop'
