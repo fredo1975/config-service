@@ -12,3 +12,8 @@ spring:
           uri: https://github.com/fredo1975/spring-cloud-server-config.git
           skipSslValidation: true
           clone-on-start: false
+          
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
