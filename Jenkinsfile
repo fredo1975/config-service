@@ -45,8 +45,7 @@ pipeline {
 						sh 'env' 
 		      			  sh '''
 					     	mvn -B org.codehaus.mojo:versions-maven-plugin:2.8.1:set -DprocessAllModules -DnewVersion=${VERSION}
-					        mvn -U clean install
-					        mvn deploy
+					        mvn -U clean deploy
 					     '''
 					}
 				}
