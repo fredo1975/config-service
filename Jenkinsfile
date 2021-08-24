@@ -87,8 +87,8 @@ pipeline {
 	   		steps {
 		      	script {
 		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
-				        sh "scp target/$ARTIFACT jenkins@$DEV1_SERVER_IP:/opt/dvdtheque_server_config_service/dvdtheque-server-config.service.jar"
-				        sh "scp target/$ARTIFACT jenkins@$DEV2_SERVER_IP:/opt/dvdtheque_server_config_service/dvdtheque-server-config.service.jar"
+				        sh "scp target/$ARTIFACT jenkins@$DEV1_SERVER_IP:/opt/dvdtheque_server_config_service/config-service.jar"
+				        sh "scp target/$ARTIFACT jenkins@$DEV2_SERVER_IP:/opt/dvdtheque_server_config_service/config-service.jar"
 		      		}
 		      	}
 		    }
