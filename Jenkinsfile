@@ -86,11 +86,7 @@ pipeline {
             }
 	   		steps {
 		      	script {
-<<<<<<< HEAD
 		      		withMaven {
-=======
-		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
->>>>>>> branch 'master' of ssh://git@github.com/fredo1975/config-service.git
 				        sh "scp target/$ARTIFACT jenkins@$DEV1_SERVER_IP:/opt/dvdtheque_server_config_service/config-service.jar"
 				        sh "scp target/$ARTIFACT jenkins@$DEV2_SERVER_IP:/opt/dvdtheque_server_config_service/config-service.jar"
 		      		}
@@ -103,11 +99,7 @@ pipeline {
             }
 	   		steps {
 		      	script {
-<<<<<<< HEAD
 		      		withMaven {
-=======
-		      		withMaven(mavenSettingsConfig: 'MyMavenSettings') {
->>>>>>> branch 'master' of ssh://git@github.com/fredo1975/config-service.git
 				        sh "scp target/$ARTIFACT jenkins@$PROD1_SERVER_IP:/opt/dvdtheque_server_config_service/config-service.jar"
 				        sh "scp target/$ARTIFACT jenkins@$PROD2_SERVER_IP:/opt/dvdtheque_server_config_service/config-service.jar"
 		      		}
