@@ -48,6 +48,8 @@ pipeline {
 						sh """
 			 				mvn -B org.codehaus.mojo:versions-maven-plugin:2.8.1:set -DprocessAllModules -DnewVersion=${VERSION}
 			        		mvn -B clean compile
+			        		mvn -B test -Darguments="${JAVA_OPTS}"
+			        		mvn -B install -DskipTests
 			      		"""
 					}
 				}
