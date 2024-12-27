@@ -91,4 +91,4 @@ COPY --from=extract build/target/extracted/application/ ./
 
 EXPOSE 8888
 
-ENTRYPOINT [ "java", "-Dspring.profiles.active=local" ,"org.springframework.boot.loader.launch.JarLauncher" ]
+ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher","-Dspring.profiles.active=local" ]
