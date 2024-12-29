@@ -8,8 +8,6 @@ management:
 spring:
   application:
     name: config-service
-  profiles:
-    active: local
   cloud:
     config:
       server:

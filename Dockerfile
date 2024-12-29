@@ -68,20 +68,21 @@ RUN java -Djarmode=layertools -jar target/app.jar extract --destination target/e
 # eclipse-temurin@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
 FROM eclipse-temurin:17-jre-jammy AS final
 
-RUN mkdir -p ./logs
-
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
-#ARG UID=10001
-#RUN adduser \
-#    --disabled-password \
-#    --gecos "" \
-#    --home "/nonexistent" \
-#    --shell "/sbin/nologin" \
-#    --no-create-home \
-#    --uid "${UID}" \
-#    appuser
-#USER appuser
+ARG UID=10001
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/nonexistent" \
+    --shell "/sbin/nologin" \
+    --no-create-home \
+    --uid "${UID}" \
+    appuser
+USER appuser
+
+USER 0
+RUN mkdir -p ./logs
 
 # Copy the executable from the "package" stage.
 COPY --from=extract build/target/extracted/dependencies/ ./
@@ -91,4 +92,4 @@ COPY --from=extract build/target/extracted/application/ ./
 
 EXPOSE 8888
 
-ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher","-Dspring.profiles.active=local" ]
+ENTRYPOINT [ "java", "-Dspring.profiles.active=local","org.springframework.boot.loader.launch.JarLauncher"]
